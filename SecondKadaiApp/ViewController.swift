@@ -15,6 +15,19 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    //TextField
+    @IBOutlet weak var nameArea: UITextField!
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //segueから遷移先のSecondViewControllerを取得する
+        let secondViewController : SecondViewController = segue.destination as! SecondViewController
+        //遷移先のSecondViewControllerのnameに値を渡す
+        //textがオプショナル型だからアンラップ
+        secondViewController.name = nameArea.text!
+    }
 
+    @IBAction func back(_ segue: UIStoryboardSegue){
+        //他の画面からsegueを使って戻ってきたとこに呼ばれる
+    }
 }
 
